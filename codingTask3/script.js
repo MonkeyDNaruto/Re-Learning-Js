@@ -35,6 +35,8 @@ addBtn.addEventListener("click", function (e) {
   }
 });
 
+// Edit and Delete Items
+
 ul.addEventListener("click", function (e) {
   if (e.target.classList[1] === "fa-pencil-square-o") {
     var parentPar = e.target.parentNode;
@@ -62,6 +64,40 @@ ul.addEventListener("click", function (e) {
   } else if (e.target.classList[1] === "fa-times") {
     var list = e.target.parentNode.parentNode;
     list.parentNode.removeChild(list);
-    
   }
+});
+
+// Hides Items
+
+var hideitem = document.getElementById("hide");
+
+hideitem.addEventListener("click", function () {
+  var label = document.querySelector("#hide-list label");
+
+  if (hideitem.checked) {
+    ul.style.display = "none";
+    label.textContent = "Unhide notes";
+  } else {
+    ul.style.display = "block";
+    label.textContent = "Hide notes";
+  }
+});
+
+// Search Filter
+
+var searchInput = document.querySelector("#search-note input");
+
+searchInput.addEventListener("keyup", function (e) {
+  var searchChar = e.target.value.toUpperCase();
+  var notes = ul.getElementsByTagName("li");
+
+  Array.from(notes).forEach(function (note) {
+    var parText = note.firstElementChild.textContent;
+
+    if (parText.toUpperCase().indexOf(searchChar) !== -1) {
+      note.style.display = "block";
+    } else {
+      note.style.display = "none";
+    }
+  });
 });
