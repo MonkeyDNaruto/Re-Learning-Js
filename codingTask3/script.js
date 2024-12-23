@@ -62,5 +62,6 @@ ul.addEventListener("click", function (e) {
   } else if (e.target.classList[1] === "fa-times") {
     var list = e.target.parentNode.parentNode;
     list.parentNode.removeChild(list);
+    
   }
 });
