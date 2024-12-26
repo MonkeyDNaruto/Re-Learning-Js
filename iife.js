@@ -17,17 +17,17 @@
 
 // IIFE
 
-(function() {
-    console.log("Hello World!");
-}());
+(function () {
+  console.log("Hello World!");
+})();
 
-(function(name) {
-    console.log("Hello " + name )
-}("John"))
+(function (name) {
+  console.log("Hello " + name);
+})("John");
 
-var d = function() {
-    console.log("Hello")
-    return "Bye"
-}();
+var d = (function () {
+  console.log("Hello");
+  return "Bye";
+})();
 
-console.log(d)
+console.log(d);
